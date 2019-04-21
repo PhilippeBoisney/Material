@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
 import androidx.navigation.ActivityNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import io.philippeboisney.material.animation.makeSceneTransitionAnimation
 import io.philippeboisney.material.databinding.FragmentMainBinding
 import io.philippeboisney.material.model.Mail
 import io.philippeboisney.material.views.MailAdapter
@@ -29,7 +28,7 @@ class MainFragment : Fragment(), MailAdapter.Listener {
     // ---
 
     override fun onClick(mail: Mail, rootView: View, imageView: View) {
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+        val options = makeSceneTransitionAnimation(
             requireActivity(),
             Pair(rootView, getString(R.string.transition_root)),
             Pair(imageView, getString(R.string.transition_image)),

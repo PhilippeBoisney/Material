@@ -19,13 +19,4 @@
                 app:endAlpha="0.3"/>
     </transitionSet>
 
-    <!-- Start fading those views to avoid them to blink during transition -->
-    <transitionSet>
-        <targets>
-            <target android:targetId="@android:id/navigationBarBackground" />
-            <target android:targetId="@android:id/statusBarBackground" />
-        </targets>
-        <fade/>
-    </transitionSet>
-
 </transitionSet>
