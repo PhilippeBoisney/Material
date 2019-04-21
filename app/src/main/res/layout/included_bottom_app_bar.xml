@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             app:layout_anchor="@id/bar"
             app:backgroundTint="@color/colorAccent"
+            android:elevation="0dp"
             tools:targetApi="lollipop"
             android:transitionName="@string/transition_fab"/>
 
