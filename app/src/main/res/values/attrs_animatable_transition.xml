@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="FabAnimatable">
+        <attr name="android:src" />
+    </declare-styleable>
+
+    <declare-styleable name="BottomAppBarAnimatable">
+        <attr name="onAppear" format="boolean" />
+    </declare-styleable>
+
+</resources>

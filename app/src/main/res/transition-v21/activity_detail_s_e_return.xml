@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:duration="@integer/animation_duration">
+
+    <!-- Change bounds of all shared elements -->
+    <transitionSet>
+        <targets>
+            <target android:targetId="@+id/activity_detail_background" />
+            <target android:targetId="@+id/activity_detail_avatar" />
+            <target android:targetId="@+id/fab" />
+            <target android:targetId="@+id/bar" />
+        </targets>
+        <changeBounds/>
+    </transitionSet>
+
+    <!-- Start AVD of FAB -->
+    <transition
+            class="io.philippeboisney.material.animation.FabAnimatableTransition"
+            android:duration="@integer/animation_duration"
+            android:src="@drawable/avd_reply_to_edit">
+        <targets>
+            <target android:targetId="@id/fab" />
+        </targets>
+    </transition>
+
+    <!-- Start AVD of Bottom App Bar -->
+    <transition
+            class="io.philippeboisney.material.animation.BottomAppBarAnimatableTransition"
+            android:duration="@integer/animation_duration"
+            app:onAppear="false">
+        <targets>
+            <target android:targetId="@id/bar" />
+        </targets>
+    </transition>
+
+    <!-- Start fading background of activity -->
+    <transition
+            class="io.philippeboisney.material.animation.FadeTransition"
+            app:startAlpha="1.0"
+            app:endAlpha="0.0">
+        <targets>
+            <target android:targetId="@id/activity_detail_background" />
+        </targets>
+    </transition>
+
+</transitionSet>

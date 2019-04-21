@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="mail"
+                type="io.philippeboisney.material.model.Mail" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/activity_detail_coordinator_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/activity_detail_root_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    tools:context=".DetailActivity">
+
+                <!-- Use a separate view for the background, rather than on the root view because it is a
+                shared element. Otherwise it interferes with the window enter transition i.e. as it is
+                resized for the shared element transition, many views are considered 'off-screen' so
+                visibility transitions are not run. -->
+                <View
+                        android:id="@+id/activity_detail_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/white"
+                        android:importantForAccessibility="no"
+                        android:transitionName="@string/transition_root"/>
+
+
+                <TextView
+                        android:id="@+id/activity_detail_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:fontFamily="sans-serif-black"
+                        android:textSize="30sp"
+                        tools:text="Bonjour from Paris"
+                        android:text="@{mail.title}"
+                        app:layout_constraintEnd_toStartOf="@+id/imageButton"/>
+
+                <ImageButton
+                        android:id="@+id/imageButton"
+                        app:srcCompat="@drawable/ic_expand_more_black_24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/activity_detail_title"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="8dp"
+                        android:onClick="onClickBackButton"/>
+
+                <TextView
+                        android:id="@+id/activity_detail_author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintTop_toBottomOf="@+id/activity_detail_title"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:fontFamily="sans-serif-medium"
+                        tools:text="Sandra Adams - 6 hrs ago"
+                        android:text="@{mail.author}"/>
+
+                <TextView
+                        android:id="@+id/activity_detail_destinataire"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/activity_detail_author"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="16dp"
+                        android:text="To me"
+                        android:textColor="#B5BCBF"
+                        android:textSize="12sp"/>
+
+                <TextView
+                        android:id="@+id/activity_detail_description"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintTop_toBottomOf="@+id/activity_detail_destinataire"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:fontFamily="sans-serif-medium"
+                        tools:text="Here are some great shots from my trop to Paris this summer!"
+                        android:text="@{mail.description}"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/activity_detail_rv"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintTop_toBottomOf="@+id/activity_detail_description"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
+                        android:background="@android:color/white"
+                        app:itemsInsideGrid="@{mail.pictures}"/>
+
+                <ImageView
+                        android:id="@+id/activity_detail_avatar"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintTop_toTopOf="@+id/activity_detail_author"
+                        app:layout_constraintBottom_toBottomOf="@+id/activity_detail_destinataire"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:src="@tools:sample/avatars"
+                        app:imageUrl="@{mail.authorAvatar}"
+                        android:transitionName="@string/transition_image"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include layout="@layout/included_bottom_app_bar"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

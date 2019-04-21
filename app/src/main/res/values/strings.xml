@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Material</string>
+    <string name="transition_root" translatable="false">transition_root</string>
+    <string name="transition_image" translatable="false">transition_image</string>
+    <string name="transition_bar" translatable="false">transition_bar</string>
+    <string name="transition_fab" translatable="false">transition_fab</string>
+</resources>

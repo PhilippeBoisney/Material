@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <fragment
+            android:id="@+id/activity_main_nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fragmentExitTransition="@transition/activity_main_exit"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph_home"/>
+
+    <include layout="@layout/included_bottom_app_bar"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+

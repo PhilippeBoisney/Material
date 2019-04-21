@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/app_bar_star"
+            android:icon="@drawable/ic_star_border_white_24dp"
+            android:title="Star"
+            app:showAsAction="always"/>
+
+    <item
+            android:id="@+id/app_bar_delete"
+            android:icon="@drawable/ic_delete_white_24dp"
+            android:title="Delete"
+            app:showAsAction="always"/>
+
+    <item
+            android:id="@+id/app_bar_more"
+            android:icon="@drawable/ic_more_vert_white_24dp"
+            android:title="More"
+            app:showAsAction="always"/>
+</menu>

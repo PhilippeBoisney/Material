@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:duration="@integer/animation_duration">
+
+    <!-- Start scaling & fading RV to give the impression of zoom out -->
+    <transitionSet>
+        <targets>
+            <target android:targetId="@id/fragment_main_rv" />
+        </targets>
+        <transition
+                class="io.philippeboisney.material.animation.PopTransition"
+                app:startScale="1.0"
+                app:endScale="0.95"/>
+        <transition
+                class="io.philippeboisney.material.animation.FadeTransition"
+                app:startAlpha="1.0"
+                app:endAlpha="0.3"/>
+    </transitionSet>
+
+    <!-- Start fading those views to avoid them to blink during transition -->
+    <transitionSet>
+        <targets>
+            <target android:targetId="@android:id/navigationBarBackground" />
+            <target android:targetId="@android:id/statusBarBackground" />
+        </targets>
+        <fade/>
+    </transitionSet>
+
+</transitionSet>

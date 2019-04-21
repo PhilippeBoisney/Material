@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="mail"
+                type="io.philippeboisney.material.model.Mail" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_mail_root_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:background="@android:color/white">
+
+
+        <!-- Use a separate view for the background, rather than on the root view because it is a
+                shared element. Otherwise it interferes with the window enter transition i.e. as it is
+                resized for the shared element transition, many views are considered 'off-screen' so
+                visibility transitions are not run. -->
+        <View
+                android:id="@+id/item_mail_background"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:importantForAccessibility="no"
+                android:transitionName="@string/transition_root"/>
+
+        <TextView
+                android:id="@+id/item_mail_author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/item_mail_avatar"
+                android:textColor="#616467"
+                android:text="@{mail.author}"
+                tools:text="Google Express - 15 mins ago"/>
+
+        <TextView
+                android:id="@+id/item_mail_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/item_mail_author"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/item_mail_avatar"
+                android:textSize="18sp"
+                android:textColor="#202528"
+                android:fontFamily="sans-serif-black"
+                android:text="@{mail.title}"
+                tools:text="Package shipped !"/>
+
+        <TextView
+                android:id="@+id/item_mail_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/item_mail_attachment"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{mail.description}"
+                android:lines="1"
+                android:ellipsize="end"
+                tools:text="Cucumber Mask Facial has shipped"
+                app:layout_constraintTop_toBottomOf="@+id/item_mail_title" android:layout_marginTop="10dp"/>
+
+        <ImageView
+                android:id="@+id/item_mail_attachment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_attachment_black_24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_mail_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:tint="#BEC5CF"
+                app:attachmentVisibility="@{mail}"/>
+
+        <ImageView
+                android:id="@+id/item_mail_avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                tools:srcCompat="@tools:sample/avatars"
+                app:imageUrl="@{mail.authorAvatar}"
+                android:transitionName="@string/transition_image"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/item_mail_photo_recyclerview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/item_mail_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:items="@{mail.pictures}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <Button
+                android:id="@+id/item_mail_button"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                app:backgroundTint="@android:color/transparent"
+                style="?android:attr/borderlessButtonStyle"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
