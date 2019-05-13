@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_graph_detail"
+            app:startDestination="@id/detailFragment">
+
+    <!-- Detail Fragment -->
+    <fragment android:id="@+id/detailFragment"
+              android:name="io.philippeboisney.material.DetailFragment">
+        <argument android:name="id" app:argType="string"/>
+    </fragment>
+
+</navigation>

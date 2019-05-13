@@ -2,16 +2,11 @@ package io.philippeboisney.material.animation
 
 import android.animation.*
 import android.content.Context
-import android.transition.TransitionValues
 import android.util.AttributeSet
-import android.view.ViewGroup
 import android.annotation.TargetApi
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
 import android.os.Build
-import android.transition.Transition
-import android.transition.Visibility
-import android.util.Log
 import android.view.View
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.philippeboisney.material.R

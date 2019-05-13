@@ -10,7 +10,7 @@ class MailViewHolder(parent: View): RecyclerView.ViewHolder(parent) {
     private val binding = ItemMailBinding.bind(parent)
 
     fun bindTo(mail: Mail, listener: MailAdapter.Listener) {
-        binding.itemMailButton.setOnClickListener { listener.onClick(mail, binding.itemMailBackground, binding.itemMailAvatar) }
+        itemView.setOnClickListener { listener.onClick(mail, binding.itemMailBackground, binding.itemMailAvatar); }
         binding.mail = mail
     }
 }

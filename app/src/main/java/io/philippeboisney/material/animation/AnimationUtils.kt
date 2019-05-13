@@ -2,7 +2,6 @@ package io.philippeboisney.material.animation
 
 import android.app.Activity
 import android.os.Build
-import android.util.Log
 import android.view.View
 import android.view.Window
 import androidx.core.app.ActivityOptionsCompat

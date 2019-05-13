@@ -2,9 +2,7 @@ package io.philippeboisney.material.views
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.IntegerRes
 import androidx.recyclerview.widget.RecyclerView
-import io.philippeboisney.material.R
 import io.philippeboisney.material.model.Picture
 
 class ImageAdapter(private val pictures: List<Picture>,

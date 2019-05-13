@@ -1,18 +1,10 @@
 package io.philippeboisney.material
 
-import android.os.Build
 import android.os.Bundle
-import android.view.View
-import androidx.core.app.ActivityCompat
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.navArgs
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import io.philippeboisney.material.base.BaseActivity
-import io.philippeboisney.material.databinding.ActivityDetailBinding
-import io.philippeboisney.material.model.utils.DataGenerator
-import io.philippeboisney.material.views.SpannedGridLayoutManager
 
 
 
@@ -25,10 +17,9 @@ class DetailActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityDetailBinding>(this, R.layout.activity_detail)
-        binding.activityDetailRv.layoutManager = SpannedGridLayoutManager(3,1f)
-        binding.mail = DataGenerator.findMailById(args.id)
-        binding.lifecycleOwner = this
+        setContentView(R.layout.activity_detail)
+        findNavController(R.id.activity_detail_nav_host_fragment)
+            .setGraph(R.navigation.nav_graph_detail, args.toBundle())
     }
 
     override fun getMenu(): Int
@@ -36,10 +27,4 @@ class DetailActivity : BaseActivity() {
 
     override fun getFabIcon(): Int
         = R.drawable.ic_reply_all_black_24dp
-
-    // ---
-
-    fun onClickBackButton(view: View) {
-        ActivityCompat.finishAfterTransition(this)
-    }
 }

@@ -1,8 +1,6 @@
 package io.philippeboisney.material
 
-import android.os.Build
 import android.os.Bundle
-import android.transition.Fade
 import io.philippeboisney.material.base.BaseActivity
 
 class MainActivity : BaseActivity() {
